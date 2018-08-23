@@ -110,6 +110,7 @@
 (require 'init-docker)
 (require 'init-terraform)
 (require 'init-vue)
+(require 'init-eshell)
 
 ;;(require 'init-nix)
 (maybe-require-package 'nginx-mode)
