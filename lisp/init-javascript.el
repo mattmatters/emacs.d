@@ -61,6 +61,17 @@
 
 
 
+;;; Formatter
+(when (and (executable-find "prettier")
+           (maybe-require-package 'prettier-js))
+  (after-load 'js2-mode
+    (add-hook 'js2-mode-hook 'prettier-js-mode)
+    (add-hook 'js2-mode-hook
+              (lambda () (local-set-key (kbd "C-i f") #'prettier-js)))))
+
+
+
+
 ;;; Coffeescript
 
 (after-load 'coffee-mode
