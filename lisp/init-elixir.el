@@ -6,6 +6,10 @@
 ;;; Code:
 (maybe-require-package 'elixir)
 
+;; Format kbd
+(add-hook 'elixir-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'elixir-format)))
+
 (require 'flycheck-elixir)
 
 ;; Alchemist Stuff
