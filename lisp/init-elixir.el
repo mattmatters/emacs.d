@@ -4,7 +4,7 @@
 ;;; Pretty Basic
 
 ;;; Code:
-(maybe-require-package 'elixir)
+(maybe-require-package 'elixir-mode)
 
 ;; Format kbd
 (add-hook 'elixir-mode-hook
@@ -13,15 +13,9 @@
 (require 'flycheck-elixir)
 
 ;; Alchemist Stuff
-(when (maybe-require-package 'alchemist-mode)
-  (after-load 'elixir
+(when (maybe-require-package 'alchemist)
+  (after-load 'elixir-mode
     (add-hook 'elixir-mode-hook 'alchemist-mode)))
-
-;; Company
-(when (maybe-require-package 'company-elixir)
-  (after-load 'company
-    (add-hook 'elixir-mode-hook
-              (lambda () (sanityinc/local-push-company-backend 'company-elixir)))))
 
 ;; Flycheck
 (when (maybe-require-package 'flycheck-elixir)
