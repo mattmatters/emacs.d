@@ -1,3 +1,9 @@
+;;; init-javascript --- Summary
+
+;;; Commentary:
+;;; Handle all the shit tons of Javascript stuff
+
+;;; Code:
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'coffee-mode)
@@ -121,3 +127,4 @@
 
 
 (provide 'init-javascript)
+;;; init-javascript ends here
