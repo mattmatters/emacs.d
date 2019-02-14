@@ -21,5 +21,11 @@
 (when (maybe-require-package 'flycheck-elixir)
   (add-hook 'elixir-mode-hook 'flycheck-mode))
 
+;; Yasnippet
+(when (maybe-require-package 'yasnippet)
+  (when (maybe-require-package 'yasnippet-snippets)
+    (add-hook 'elixir-mode-hook 'yas-minor-mode)))
+
+
 (provide 'init-elixir)
 ;;; init-elixir ends here
