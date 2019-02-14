@@ -1,9 +1,7 @@
-;;; init-php --- Summary
-
+;;; init-php.el --- Support for working with PHP -*- lexical-binding: t -*-
 ;;; Commentary:
-;;; PHP with some nice extras
-
 ;;; Code:
+
 (when (maybe-require-package 'php-mode)
   (maybe-require-package 'smarty-mode)
 
@@ -22,4 +20,4 @@
 ;;     (add-hook 'php-mode-hook (lambda () (local-set-key (kbd "C-i f") #'phpcbf)))))
 
 (provide 'init-php)
-;;; init-php ends here
+;;; init-php.el ends here
