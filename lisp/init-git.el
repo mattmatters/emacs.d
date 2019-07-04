@@ -49,6 +49,11 @@
 (when (maybe-require-package 'git-commit)
   (add-hook 'git-commit-mode-hook 'goto-address-mode))
 
+;;; Load forge after
+(when (maybe-require-package 'forge)
+  (with-eval-after-load 'magit
+    (require 'forge)))
+
 
 (when *is-a-mac*
   (after-load 'magit

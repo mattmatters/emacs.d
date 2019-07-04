@@ -91,6 +91,7 @@
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-erlang)
+(require 'init-elixir)
 (require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
@@ -112,6 +113,7 @@
 (require 'init-docker)
 (require 'init-terraform)
 (require 'init-vue)
+(require 'init-eshell)
 
 ;;(require 'init-nix)
 (maybe-require-package 'nginx-mode)
