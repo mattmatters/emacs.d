@@ -19,6 +19,11 @@
 (setq-default js-indent-level 2)
 
 
+;;; Basic typescript-mode setup
+
+(setq-default typescript-indent-level 2)
+
+
 ;; js2-mode
 
 ;; Change some defaults: customize them to override
