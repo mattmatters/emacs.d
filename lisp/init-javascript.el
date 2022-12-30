@@ -70,12 +70,17 @@
 
 ;;; Formatter
 (when (and (executable-find "prettier")
-           (maybe-require-package 'prettier-js))
+           (maybe-require-package 'prettier))
   (after-load 'js2-mode
-    (add-hook 'js2-mode-hook 'prettier-js-mode)
+    (add-hook 'js2-mode-hook 'prettier-mode)
     (add-hook 'js2-mode-hook
-              (lambda () (local-set-key (kbd "C-i f") #'prettier-js)))))
+              (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify))))
+  (after-load 'js
+    (add-hook 'js-mode-hook 'prettier-mode)
+    (add-hook 'js-mode-hook
+              (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify)))))
 
+(setq-default prettier-prettify-on-save-flag nil)
 
 
 
