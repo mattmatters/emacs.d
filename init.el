@@ -64,6 +64,7 @@
 (require 'init-eglot)
 
 (require 'init-recentf)
+(require 'init-ripgrep)
 (require 'init-minibuffer)
 (require 'init-hippie-expand)
 (require 'init-corfu)
