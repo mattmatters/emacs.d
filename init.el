@@ -89,6 +89,8 @@
 (require 'init-csv)
 (require 'init-erlang)
 (require 'init-elixir)
+(require 'init-kotlin)
+(require 'init-swift)
 (require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
