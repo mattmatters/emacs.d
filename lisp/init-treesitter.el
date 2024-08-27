@@ -63,6 +63,18 @@ Return a list of languages seen along the way."
              (fboundp ts-mode))
     (add-to-list 'major-mode-remap-alist (cons non-ts-mode ts-mode))))
 
+(setq treesit-language-source-alist
+      '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
+        (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
+        (python . ("https://github.com/tree-sitter/tree-sitter-python"))
+        (heex "https://github.com/phoenixframework/tree-sitter-heex")
+        (elixir "https://github.com/elixir-lang/tree-sitter-elixir")))
+
+
+(dolist (source treesit-language-source-alist)
+  (unless (treesit-ready-p (car source))
+    (treesit-install-language-grammar (car source))))
+
 ;; When there's js-ts-mode, we also prefer it to js2-mode
 (sanityinc/remap-ts-mode 'js2-mode 'js-ts-mode 'javascript)
 (sanityinc/remap-ts-mode 'clojurescript-mode 'clojurescript-ts-mode 'clojure)
