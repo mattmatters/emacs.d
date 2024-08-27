@@ -14,12 +14,11 @@
 (when (maybe-require-package 'flycheck-elixir)
   (add-hook 'elixir-mode-hook 'flycheck-mode))
 
-;; Alchemist Stuff
-(when (maybe-require-package 'alchemist)
-  (after-load 'elixir-mode
-    (add-hook 'elixir-mode-hook 'alchemist-mode)))
+;; Eglot
+(add-hook 'elixir-mode-hook 'eglot-ensure)
 
-
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '(elixir-mode "~/elixir-ls/language_server.sh")))
 
 (provide 'init-elixir)
 ;;; init-elixir ends here
