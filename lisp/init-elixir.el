@@ -19,10 +19,6 @@
   (after-load 'elixir-mode
     (add-hook 'elixir-mode-hook 'alchemist-mode)))
 
-;; Yasnippet
-(when (maybe-require-package 'yasnippet)
-  (when (maybe-require-package 'yasnippet-snippets)
-    (add-hook 'elixir-mode-hook 'yas-minor-mode)))
 
 
 (provide 'init-elixir)
