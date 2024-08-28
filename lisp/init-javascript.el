@@ -4,8 +4,9 @@
 
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
-(maybe-require-package 'typescript-mode)
+(maybe-require-package 'typescript-ts-mode)
 (maybe-require-package 'prettier-js)
+(maybe-require-package 'add-node-modules-path)
 
 
 ;;; Basic js-mode setup
@@ -17,11 +18,13 @@
   (sanityinc/major-mode-lighter 'js-jsx-mode "JSX"))
 
 (setq-default js-indent-level 2)
+(add-hook 'js-mode-hook 'add-node-modules-path)
 
 
 ;;; Basic typescript-mode setup
 
 (setq-default typescript-indent-level 2)
+(add-hook 'typescript-ts-base-mode-hook 'add-node-modules-path)
 
 
 ;; js2-mode
@@ -72,17 +75,17 @@
 
 
 
-;;; Formatter
-;; (when (and (executable-find "prettier")
-;;            (maybe-require-package 'prettier))
-;;   (after-load 'js2-mode
-;;     (add-hook 'js2-mode-hook 'prettier-mode)
-;;     (add-hook 'js2-mode-hook
-;;               (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify))))
-;;   (after-load 'js
-;;     (add-hook 'js-mode-hook 'prettier-mode)
-;;     (add-hook 'js-mode-hook
-;;               (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify)))))
+;; Formatter
+
+(add-hook 'typescript-ts-base-mode-hook 'prettier-js-mode)
+(add-hook 'typescript-ts-base-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'prettier-js)))
+(add-hook 'js2-mode-hook 'prettier-mode)
+(add-hook 'js2-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify)))
+(add-hook 'js-mode-hook 'prettier-mode)
+(add-hook 'js-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify)))
 
 (setq-default prettier-prettify-on-save-flag nil)
 
