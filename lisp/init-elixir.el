@@ -5,6 +5,9 @@
 
 ;;; Code:
 (maybe-require-package 'elixir-ts-mode)
+(maybe-require-package 'heex-ts-mode)
+
+;; TODO we can install the grammar here if need be on emacs 30
 
 ;; Format kbd
 (add-hook 'elixir-ts-mode-hook
