@@ -17,8 +17,10 @@
 
 (when (fboundp 'set-charset-priority)
   (set-charset-priority 'unicode))
+(set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 (setq locale-coding-system 'utf-8)
+
 (unless (eq system-type 'windows-nt)
   (set-selection-coding-system 'utf-8))
 
