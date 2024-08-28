@@ -1,4 +1,4 @@
-;;; init-elixir --- Summary
+;;; init-elixir.el --- Summary
 
 ;;; Commentary:
 ;;; Pretty Basic
@@ -26,4 +26,4 @@
   (add-to-list 'eglot-server-programs '(elixir-ts-mode "~/elixir-ls/language_server.sh")))
 
 (provide 'init-elixir)
-;;; init-elixir ends here
+;;; init-elixir.el ends here
