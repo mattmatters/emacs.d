@@ -11,7 +11,10 @@
     ;; so I redefine `terraform-format-on-save-mode' here.
     (when (maybe-require-package 'reformatter)
       (reformatter-define terraform-format
-        :program "terraform" :args '("fmt" "-")))))
+        :program "terraform" :args '("fmt" "-")))
+    (add-hook 'terraform-mode-hook
+              (lambda () (local-set-key (kbd "C-i f") #'terraform-format-buffer))))
+  )
 
 (provide 'init-terraform)
 ;;; init-terraform.el ends here
