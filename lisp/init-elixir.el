@@ -1,4 +1,4 @@
-;;; init-elixir.el --- Summary
+;;; init-elixir.el --- Support for Elixir and heex templates  -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;; Pretty Basic
