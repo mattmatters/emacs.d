@@ -10,6 +10,9 @@
 (add-hook 'elixir-ts-mode-hook
           (lambda () (local-set-key (kbd "C-i f") #'elixir-format)))
 
+(add-hook 'heex-ts-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'elixir-format)))
+
 ;; Flycheck
 (when (maybe-require-package 'flycheck-elixir)
   (add-hook 'elixir-ts-mode-hook 'flycheck-mode))
