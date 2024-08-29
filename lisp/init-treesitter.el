@@ -65,7 +65,8 @@ Return a list of languages seen along the way."
 
 ;; Ensure treesitter grammars exist
 (setq treesit-language-source-alist
-      '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
+      '((markdown . ("https://github.com/tree-sitter/tree-sitter-markdown"))
+        (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
         (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
         (python . ("https://github.com/tree-sitter/tree-sitter-python"))
         (eex "https://github.com/connorlay/tree-sitter-eex")
