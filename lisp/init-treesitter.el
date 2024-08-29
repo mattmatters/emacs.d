@@ -63,10 +63,12 @@ Return a list of languages seen along the way."
              (fboundp ts-mode))
     (add-to-list 'major-mode-remap-alist (cons non-ts-mode ts-mode))))
 
+;; Ensure treesitter grammars exist
 (setq treesit-language-source-alist
       '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
         (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
         (python . ("https://github.com/tree-sitter/tree-sitter-python"))
+        (eex "https://github.com/connorlay/tree-sitter-eex")
         (heex "https://github.com/phoenixframework/tree-sitter-heex")
         (elixir "https://github.com/elixir-lang/tree-sitter-elixir")))
 
