@@ -4,7 +4,6 @@
 
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
-(maybe-require-package 'typescript-ts-mode)
 (maybe-require-package 'prettier-js)
 (maybe-require-package 'add-node-modules-path)
 
@@ -45,7 +44,6 @@
         (js2-minor-mode 1))))
   (add-hook 'js-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
   (add-hook 'js2-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
-
   (js2-imenu-extras-setup))
 
 (add-to-list 'interpreter-mode-alist (cons "node" 'js2-mode))
@@ -77,9 +75,13 @@
 
 ;; Formatter
 
-(add-hook 'typescript-ts-base-mode-hook 'prettier-js-mode)
+;; Run `npm install -g prettier` to get it everywhere
+;; for some reason with-eval-after-load doesn't work with typescript-ts-base-mode
 (add-hook 'typescript-ts-base-mode-hook
-          (lambda () (local-set-key (kbd "C-i f") #'prettier-js)))
+          (lambda () (when (executable-find "prettier")
+                  (prettier-js-mode 1)
+                  (local-set-key (kbd "C-i f") #'prettier-js))))
+
 (add-hook 'js2-mode-hook 'prettier-mode)
 (add-hook 'js2-mode-hook
           (lambda () (local-set-key (kbd "C-i f") #'prettier-prettify)))
