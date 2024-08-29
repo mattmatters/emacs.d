@@ -92,6 +92,17 @@
 (setq-default prettier-prettify-on-save-flag nil)
 
 
+;; Language server
+
+;; Run npm install -g typescript-language-server
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '((typescript-ts-base-mode) "typescript-language-server" "--stdio")))
+
+(add-hook 'typescript-ts-base-mode-hook
+          (lambda () (when (executable-find "typescript-language-server")
+                  (eglot-ensure))))
+
 ;; Run and interact with an inferior JS via js-comint.el
 
 (when (maybe-require-package 'js-comint)
