@@ -125,6 +125,7 @@
 (require 'init-yaml)
 (require 'init-docker)
 (require 'init-terraform)
+(require 'init-protobuf)
 (require 'init-vue)
 (require 'init-eshell)
 (require 'init-nix)
