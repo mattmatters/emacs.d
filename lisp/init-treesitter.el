@@ -64,14 +64,20 @@ Return a list of languages seen along the way."
     (add-to-list 'major-mode-remap-alist (cons non-ts-mode ts-mode))))
 
 ;; Ensure treesitter grammars exist
+;; Some of these are source from https://github.com/mickeynp/combobulate, we could probably check if they are still the best to use
 (setq treesit-language-source-alist
-      '((markdown . ("https://github.com/tree-sitter/tree-sitter-markdown"))
-        (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
-        (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
-        (python . ("https://github.com/tree-sitter/tree-sitter-python"))
+      '((css . ("https://github.com/tree-sitter/tree-sitter-css" "v0.20.0"))
         (eex "https://github.com/connorlay/tree-sitter-eex")
+        (elixir "https://github.com/elixir-lang/tree-sitter-elixir")
         (heex "https://github.com/phoenixframework/tree-sitter-heex")
-        (elixir "https://github.com/elixir-lang/tree-sitter-elixir")))
+        (html . ("https://github.com/tree-sitter/tree-sitter-html" "v0.20.1"))
+        (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "v0.20.1" "src"))
+        (json . ("https://github.com/tree-sitter/tree-sitter-json" "v0.20.2"))
+        (python . ("https://github.com/tree-sitter/tree-sitter-python" "v0.20.4"))
+        (toml "https://github.com/tree-sitter/tree-sitter-toml")
+        (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "tsx/src"))
+        (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "typescript/src"))
+        (yaml . ("https://github.com/ikatyang/tree-sitter-yaml" "v0.5.0"))))
 
 
 (dolist (source treesit-language-source-alist)
@@ -81,12 +87,10 @@ Return a list of languages seen along the way."
 ;; When there's js-ts-mode, we also prefer it to js2-mode
 (sanityinc/remap-ts-mode 'js2-mode 'js-ts-mode 'javascript)
 (sanityinc/remap-ts-mode 'clojurescript-mode 'clojurescript-ts-mode 'clojure)
-
+;; (sanityinc/remap-ts-mode 'elixir-mode 'elixir-ts-mode 'elixir)
 
 ;; Default
 (setq treesit-font-lock-level 4)
-
-
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here
