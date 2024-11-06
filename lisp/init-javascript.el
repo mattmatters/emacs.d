@@ -4,7 +4,7 @@
 
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
-(maybe-require-package 'prettier-js)
+(maybe-require-package 'prettier)
 (maybe-require-package 'add-node-modules-path)
 
 
@@ -79,8 +79,8 @@
 ;; for some reason with-eval-after-load doesn't work with typescript-ts-base-mode
 (add-hook 'typescript-ts-base-mode-hook
           (lambda () (when (executable-find "prettier")
-                  (prettier-js-mode 1)
-                  (local-set-key (kbd "C-i f") #'prettier-js))))
+                  (prettier-mode 1)
+                  (local-set-key (kbd "C-i f") #'prettier-prettify))))
 
 (add-hook 'js2-mode-hook 'prettier-mode)
 (add-hook 'js2-mode-hook
