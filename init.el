@@ -83,6 +83,7 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-mmm)
+(require 'init-stt)
 (require 'init-gpt)
 
 (require 'init-editing-utils)
