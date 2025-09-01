@@ -9,6 +9,9 @@
 
 ;; TODO we can install the grammar here if need be on emacs 30
 
+(add-to-list 'auto-mode-alist '("\\.exs?\\'" . elixir-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.heex\\'" . heex-ts-mode))
+
 ;; Format kbd
 (add-hook 'elixir-ts-mode-hook
           (lambda () (local-set-key (kbd "C-i f") #'elixir-format)))
