@@ -15,5 +15,8 @@
 (when (maybe-require-package 'flymake-actionlint)
   (add-hook 'yaml-mode-hook 'flymake-actionlint-action-load-when-actions-file))
 
+(use-package forge
+  :after magit)
+
 (provide 'init-github)
 ;;; init-github.el ends here
