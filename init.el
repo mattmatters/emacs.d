@@ -85,6 +85,7 @@
 (require 'init-mmm)
 (require 'init-stt)
 (require 'init-gpt)
+(require 'init-claude-code)
 
 (require 'init-editing-utils)
 (require 'init-whitespace)
