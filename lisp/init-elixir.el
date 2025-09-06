@@ -12,16 +12,12 @@
 (add-to-list 'auto-mode-alist '("\\.exs?\\'" . elixir-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.heex\\'" . heex-ts-mode))
 
-;; Format kbd
-(add-hook 'elixir-ts-mode-hook
-          (lambda () (local-set-key (kbd "C-i f") #'elixir-format)))
 
-(add-hook 'heex-ts-mode-hook
-          (lambda () (local-set-key (kbd "C-i f") #'elixir-format)))
 
 ;; Flycheck
 (when (maybe-require-package 'flycheck-elixir)
   (add-hook 'elixir-ts-mode-hook 'flycheck-mode))
+
 
 ;; Treesitter
 
@@ -31,6 +27,13 @@
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs '(elixir-ts-mode "~/elixir-ls/language_server.sh")))
+
+;; Format kbd (I might want to move this to just after eglot loads)
+(add-hook 'elixir-ts-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'eglot-format)))
+
+(add-hook 'heex-ts-mode-hook
+          (lambda () (local-set-key (kbd "C-i f") #'eglot-format)))
 
 (provide 'init-elixir)
 ;;; init-elixir.el ends here
