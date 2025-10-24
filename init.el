@@ -114,6 +114,7 @@
 (require 'init-css)
 (require 'init-haml)
 (require 'init-http)
+(require 'init-protobuf)
 (require 'init-python)
 (require 'init-haskell)
 (require 'init-elm)
