@@ -25,6 +25,19 @@
 (add-hook 'elixir-mode-hook 'eglot-ensure)
 (add-hook 'elixir-ts-mode-hook 'eglot-ensure)
 
+;; Lots of my projects are monorepos
+(with-eval-after-load 'project
+  (add-to-list 'project-vc-extra-root-markers "mix.exs"))
+
+;; The marker moves the project boundary for navigation too, so you can't jump
+;; to sibling dirs. If that gets annoying in polyglot worktrees, play around
+;; with this instead. Narrows the root for eglot only, leaves project.el alone:
+;;   (defun m/eglot-mix-root (dir)
+;;     (when (bound-and-true-p eglot-lsp-context)
+;;       (when-let ((root (locate-dominating-file dir "mix.exs")))
+;;         (cons 'transient root))))
+;;   (add-hook 'project-find-functions #'m/eglot-mix-root)
+
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs '(elixir-ts-mode "~/elixir-ls/language_server.sh")))
 
