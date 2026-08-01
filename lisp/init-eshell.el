@@ -4,7 +4,7 @@
 ;;; Some stuff for working with eshell
 
 ;;; Code:
-(global-set-key (kbd "C-x e") 'eshell)
+(global-set-key (kbd "C-c C-t") 'eshell)
 
 (with-eval-after-load "esh-opt"
   (when (maybe-require-package 'eshell-prompt-extras)
